@@ -10,7 +10,8 @@
 
 # production
 /build
-
+mysqlTest.py
+flaskapp.py
 # misc
 .DS_Store
 .env.local

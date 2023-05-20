@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 const Recipe = (props) =>{
     const recipe = props.recipe;
+    console.log(recipe);
     const changeSelectedItem = props.changeSelectedItem;
     
     const changeLocalSelection = (recipeName) => {
@@ -10,10 +11,12 @@ const Recipe = (props) =>{
     let [isSelected, setIsSelected] = useState(false);
     return (
         <div className={('recipe-individual' + (isSelected? ' is-selected-recipe': '') )}>
-            <p onClick={() =>changeLocalSelection(recipe.Name) } className='recipe-title'>{recipe.Name}</p>
-            <p onClick={() =>changeLocalSelection(recipe.Name) } className="recipe-description">
-                {recipe.Description}
-            </p>
+            <p onClick={() =>changeLocalSelection(recipe) } className='recipe-title'>{recipe.Name}</p>
+            <div onClick={() =>changeLocalSelection(recipe) } className="recipe-description">
+                <p>Type: {recipe.Type}</p>
+                <p>Author: {recipe.Author}</p>
+                <p>Est Time: {recipe.estimatedTime}</p>
+            </div>
         </div>
     )
 };

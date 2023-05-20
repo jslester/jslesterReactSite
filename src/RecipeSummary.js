@@ -6,7 +6,11 @@ const RecipeSummary = (props) =>{
             <div className="recipe-summary-box">
                 {selectedItems.map( (item) =>{
                     return (
-                        <p className="summaryItem" key={item}>{item}</p>
+                        <div key={item.Name}>
+                            <b className="summaryItem">{item.Name}</b>
+                            <p className="summaryIngredient">{item.Ingredients}</p>
+                        </div>
+                        
                     );
                     
                 })}

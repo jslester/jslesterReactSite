@@ -21,11 +21,13 @@ function App() {
    }
    const changeSelectedItem = (selectedItem)=>{
     let newItemList;
-    if(selectedItems.includes(selectedItem)){
-      newItemList = selectedItems.filter(function(e) { return e !== selectedItem })
+    let valueExist = false;
+    if (selectedItems.find(e => e.Name === selectedItem.Name)) {
+      newItemList = selectedItems.filter(function(e) { return e.Name !== selectedItem.Name })
     }else{
       newItemList = [...selectedItems, selectedItem];
     }
+    
     setSelectedItems(newItemList);
    }
   return (
