@@ -19,18 +19,69 @@ html { font-family: serif; }
 .viewWrap{
     display: flex;
     flex-wrap: wrap;
-    box-shadow: 'none'
+    box-shadow: 'none'    
 }
 .is-selected-recipe{
     box-shadow: #4056F4 2.95px 2.95px 2.95px 2.95px;
 }
+.inputBox{
+    height: 30px;
+    width: 200px;
+    background: white;
+    -webkit-box-shadow: inset 0 1px 3px 0 rgba(0,0,0,.08);
+    -moz-box-shadow: inset 0 1px 3px 0 rgba(0,0,0,.08);
+    box-shadow: inset 0 1px 3px 0 rgba(0,0,0,.08);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0;
+    font-size: 16px;
+    color: #666;
+    -webkit-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    transition: all .4s ease;
+    outline: none;
+    margin-right: 15px;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: 14px;
+    font-family: inherit;
+}
+label{
+    font-size: 16px;
+    color: #555;
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 5px;
+}
+.inputDiv{
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.searchBarDiv{
+    background-color: #ebe1e8;
+    color: black;
+    margin:10px 50px;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0) 2.95px 2.95px 2.6px;
+}
 .summaryHeaderText{
     padding-left: 10px;
 }
+.filterDiv{
+    /* #798897*/
+    align-items: center;
+    margin: 10px 30px auto auto;
+    display: flex;
+    flex-wrap: wrap;
+}
 .recipe-title{
-    /*light red  ferrari red #ff2800
-    
-    */
     color:white;
     margin-top: 0px;
     margin-bottom:0px;
@@ -109,12 +160,17 @@ html { font-family: serif; }
     color: #4056F4;
     background-color: white;
     border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
     border: 2px #4056F4 solid;
     width: 100px;
     font-size: 18px;
     cursor: pointer;
     padding:0px;
     height: 50px;
+    text-decoration: none;
 }
 .viewButton{
     width: 60px;

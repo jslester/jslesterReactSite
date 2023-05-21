@@ -1,66 +1,62 @@
-import Modal from 'react-modal';
-const RecipeView = (props) =>{
-    //Modal.setAppElement('root');
-    const modalIsOpen = props.modalIsOpen;
-    const closeModal = props.closeModal;
-    const viewItem = props.viewItem;
-    const customStyles = {
-        content: {
-          padding:'0px',
-          bottom: 'auto',
-          maxHeight:'600px',
-          overflowY: 'scroll',
-          margin:'0px auto',
-          borderRadius: '12px',
-          backgroundColor: '#ebe1e8'
-        },
-      };
+import React, { Component, useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+const RecipeView = (props) => {
+  const data = props.data;
+  var viewItem = props.viewItem;
+  var [viewItemLocal, setViewItemLocal] = useState({});
+  let [searchParams, setSearchParams] = useSearchParams();
+  useEffect(() => {
+    console.log("rendering", viewItem);
+    if (!viewItem || !viewItem.Name) {
+      console.log("view item not found");
+      const recipeName = searchParams.get("Recipe");
+      viewItem = data.find((x) => x.Name === recipeName);
+      console.log(viewItem);
+    }
+    setViewItemLocal(viewItem);
+  }, []);
+  return (
+    <div style={{ width: "100%" }}>
+      <div
+        style={{
+          backgroundColor: "#ebe1e8",
+          paddingLeft: "10px",
+          color: "black",
+        }}
+        className="summaryHeader"
+      >
+        <h2>{viewItemLocal.Name}</h2>
+        <div style={{ margin: "auto 30px auto auto" }}></div>
+      </div>
 
-    return(
-        <div>
-            
-            <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                style={customStyles}
-                overlayClassName="Overlay"
-                contentLabel="Example Modal"
+      <div className="recipe-summary-box" style={{ paddingLeft: "10px" }}>
+        <a target="_Blank" href={viewItemLocal.Link}>
+          Link to recipe
+        </a>
+        <div className="viewWrap">
+          <div>
+            <h2>Ingredients</h2>
+
+            <div
+              className=" summaryIngredient"
+              style={{ marginBottom: "0px", maxWidth: "400px" }}
             >
-        
-                
-                    <div style={{top: '0', position: 'sticky', alignItems: 'center'}} className="summaryHeader">
-                        <h2  >{viewItem.Name}</h2>
-                        <div style={{margin: 'auto 30px auto auto'}}>
-                            <button className="summaryButton viewButton" onClick={closeModal}>Close</button>
-                        </div>
-                        
-                    </div>
-                    
-                    <div className="recipe-summary-box" >
-                        <a target="_Blank" href={viewItem.Link}>Link to recipe</a>
-                        <div className='viewWrap'>
-                           
-                            <div>
-                                <h2 >Ingredients</h2>
-
-                                <div className=" summaryIngredient"  style={{ marginBottom: '0px', maxWidth: '400px'}}>
-                                    {viewItem.Ingredients}
-                                </div>
-                            </div>
-                            <div>
-                                <h2>Instructions</h2>
-                                <div style={{ marginBottom: '0px', maxWidth: '850px'}} className='summaryIngredient'>
-                                    {viewItem.Instructions}
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
-            
-            </Modal>
+              {viewItemLocal.Ingredients}
+            </div>
+          </div>
+          <div>
+            <h2>Instructions</h2>
+            <div
+              style={{ marginBottom: "0px", maxWidth: "850px" }}
+              className="summaryIngredient"
+            >
+              {viewItemLocal.Instructions}
+            </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default RecipeView;
