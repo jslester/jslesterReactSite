@@ -32,18 +32,18 @@ function App() {
           <Routes>
             <Route
               exact
-              path="/"
+              path="/food"
               element={data && <Home setViewItem={setViewItem} data={data} />}
             ></Route>
             <Route
-              path="/view"
+              path="/food/view"
               element={
                 data && (
                   <RecipeView data={data} viewItem={viewItem}></RecipeView>
                 )
               }
             ></Route>
-            <Route path="/add" element={<AddRecipe></AddRecipe>}></Route>
+            <Route path="/food/add" element={<AddRecipe></AddRecipe>}></Route>
           </Routes>
         </div>
       </div>

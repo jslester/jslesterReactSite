@@ -21,7 +21,7 @@ const Recipe = (props) => {
         <p>Est Time: {recipe.estimatedTime}</p>
         <div className="recipeButtonWrapper">
           <Link
-            to={"/view?Recipe=" + recipe.Name}
+            to={"/food/view?Recipe=" + recipe.Name}
             className="summaryButton"
             onClick={() => setViewItem(recipe)}
           >

@@ -61,6 +61,13 @@ label{
     padding-left: 10px;
     padding-bottom: 10px;
 }
+.textAreaAdd{
+    height: 200px;
+    width: 100%;
+}
+.addInput{
+    width: 100%;
+}
 .searchBarDiv{
     background-color: #ebe1e8;
     color: black;

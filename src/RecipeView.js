@@ -3,8 +3,10 @@ import { Link, useSearchParams } from "react-router-dom";
 const RecipeView = (props) => {
   const data = props.data;
   var viewItem = props.viewItem;
+
   var [viewItemLocal, setViewItemLocal] = useState({});
   let [searchParams, setSearchParams] = useSearchParams();
+  //const instructionList = viewItemLocal.Instructions.split("\n");
   useEffect(() => {
     console.log("rendering", viewItem);
     if (!viewItem || !viewItem.Name) {
@@ -41,7 +43,17 @@ const RecipeView = (props) => {
               className=" summaryIngredient"
               style={{ marginBottom: "0px", maxWidth: "400px" }}
             >
-              {viewItemLocal.Ingredients}
+              <ul>
+                {viewItemLocal.Ingredients &&
+                  viewItemLocal.Ingredients.split("\n").map(
+                    (individualIngredient) => {
+                      if (individualIngredient) {
+                        return <li>{individualIngredient}</li>;
+                      }
+                      return "";
+                    }
+                  )}
+              </ul>
             </div>
           </div>
           <div>
@@ -50,7 +62,17 @@ const RecipeView = (props) => {
               style={{ marginBottom: "0px", maxWidth: "850px" }}
               className="summaryIngredient"
             >
-              {viewItemLocal.Instructions}
+              <ul style={{ listStyle: "Decimal" }}>
+                {viewItemLocal.Instructions &&
+                  viewItemLocal.Instructions.split("\n").map(
+                    (individualInstruction) => {
+                      if (individualInstruction) {
+                        return <li>{individualInstruction}</li>;
+                      }
+                      return "";
+                    }
+                  )}
+              </ul>
             </div>
           </div>
         </div>

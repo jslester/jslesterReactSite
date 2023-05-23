@@ -37,7 +37,7 @@ const FilterList = (props) => {
             type="text"
           ></input>
         </div>
-        <Link to="/add" className="summaryButton">
+        <Link to="/food/add" className="summaryButton">
           Add Recipe
         </Link>
         <button
