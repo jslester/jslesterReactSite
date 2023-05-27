@@ -6,8 +6,11 @@ import Home from "./Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RecipeView from "./RecipeView";
 import AddRecipe from "./AddRecipe";
+import ShoppingList from "./ShoppingList";
 function App() {
-  const { data, isPending, error } = useFetch();
+  const { data, isPending, error } = useFetch(
+    "https://jslester.com/food/server"
+  );
   var [viewItem, setViewItem] = useState({});
 
   return (
@@ -44,6 +47,10 @@ function App() {
               }
             ></Route>
             <Route path="/food/add" element={<AddRecipe></AddRecipe>}></Route>
+            <Route
+              path="/food/ShoppingList"
+              element={<ShoppingList></ShoppingList>}
+            ></Route>
           </Routes>
         </div>
       </div>

@@ -12,6 +12,7 @@
 /build
 mysqlTest.py
 flaskapp.py
+sendEmail.py
 # misc
 .DS_Store
 .env.local

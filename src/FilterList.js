@@ -40,6 +40,9 @@ const FilterList = (props) => {
         <Link to="/food/add" className="summaryButton">
           Add Recipe
         </Link>
+        <Link to="/food/ShoppingList" className="summaryButton">
+          Shopping Lists
+        </Link>
         <button
           className="summaryButton"
           style={{ marginLeft: "10px" }}
