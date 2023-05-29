@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 const IndividualIngredient = (props) => {
-  const [isSelected, setIsSelected] = useState(false);
+  let isDefaultFilter = props.isDefaultFilter;
+  const [isSelected, setIsSelected] = useState(isDefaultFilter);
+  const index = props.index;
+  const changeFilterList = props.changeFilterList;
   const toggleSelection = () => {
-    console.log("toggle");
     setIsSelected(!isSelected);
+    changeFilterList(index);
   };
+  useEffect(() => {
+    setIsSelected(isDefaultFilter);
+  }, [isDefaultFilter]);
   const ingredient = props.ingredient;
   return (
     <p
