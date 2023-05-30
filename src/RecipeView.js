@@ -31,10 +31,13 @@ const RecipeView = (props) => {
         <div style={{ margin: "auto 30px auto auto" }}></div>
       </div>
 
-      <div className="recipe-summary-box" style={{ paddingLeft: "10px" }}>
-        <a target="_Blank" href={viewItemLocal.Link}>
-          Link to recipe
-        </a>
+      <div className="recipe-view-box" style={{ paddingLeft: "10px" }}>
+        <div style={{ height: "100%" }}>
+          <a target="_Blank" href={viewItemLocal.Link}>
+            Link to recipe
+          </a>
+        </div>
+
         <div className="viewWrap">
           <div>
             <h2>Ingredients</h2>

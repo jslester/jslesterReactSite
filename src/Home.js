@@ -1,7 +1,5 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Sidebar from "react-sidebar";
-import RecipeView from "./RecipeView";
-
 import RecipeList from "./RecipeList";
 import RecipeSummary from "./RecipeSummary";
 
@@ -25,7 +23,6 @@ const Home = (props) => {
 
   const changeSelectedItem = (selectedItem) => {
     let newItemList;
-    let valueExist = false;
     if (selectedItems.find((e) => e.Name === selectedItem.Name)) {
       newItemList = selectedItems.filter(function (e) {
         return e.Name !== selectedItem.Name;

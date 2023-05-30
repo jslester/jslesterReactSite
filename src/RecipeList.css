@@ -103,6 +103,12 @@ label{
         margin: auto;
         width: 100%;
     }
+    .inputDiv{
+        width: 100%;
+    }
+    .inputSingleForm{
+        width: 100%;
+    }
   }
   .shoppingListHeader{
     display:flex;
@@ -155,6 +161,27 @@ label{
     margin-bottom:50px;
     
 }
+.formViewWrapper{
+    width: 100%;
+    padding: 10px;
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+}
+@media screen and (min-width: 480px) {
+    .formViewWrapper{
+        width:100%;
+    }
+    .textAreaDiv{
+        height: 400px;
+        width: 500px;
+        padding-left: 10px;
+    }
+    .textAreaAdd{
+        height: 300px;
+        width: 500px;
+    }
+  }
 @media screen and (max-width: 480px) {
     .recipe-summary{
         width:300px;
@@ -167,6 +194,12 @@ label{
     background-color: #ebe1e8;
     min-height: 300px;
     display: flex;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: rgba(0, 0, 0) 2.95px 2.95px 2.6px;
+}
+.recipe-view-box{
+    background-color: #ebe1e8;
+    min-height: 300px;
     border-radius: 0px 0px 10px 10px;
     box-shadow: rgba(0, 0, 0) 2.95px 2.95px 2.6px;
 }
@@ -190,10 +223,10 @@ label{
 .summaryIngredient{
     padding:15px;
     margin-top: 0px;
-    width: 70%;
     white-space: break-spaces;
     overflow-wrap: break-word;
 }
+
 .summaryDivButton{
     height: 24px;
     margin: 10px 30px auto auto;

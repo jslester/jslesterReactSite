@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 const Recipe = (props) => {
   const recipe = props.recipe;
   const changeSelectedItem = props.changeSelectedItem;

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 const FilterList = (props) => {
   const changeSidebarState = props.changeSidebarState;
   const changeText = props.changeText;
@@ -37,12 +36,7 @@ const FilterList = (props) => {
             type="text"
           ></input>
         </div>
-        <Link to="/food/add" className="summaryButton">
-          Add Recipe
-        </Link>
-        <Link to="/food/ShoppingList" className="summaryButton">
-          Shopping Lists
-        </Link>
+
         <button
           className="summaryButton"
           style={{ marginLeft: "10px" }}

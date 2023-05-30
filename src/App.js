@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState } from "react";
-import Header from "./Header";
+import React, { useState } from "react";
+import NavBar from "./NavBar";
 import useFetch from "./useFetch";
 import { Oval } from "react-loader-spinner";
 import Home from "./Home";
@@ -8,16 +8,15 @@ import RecipeView from "./RecipeView";
 import AddRecipe from "./AddRecipe";
 import ShoppingList from "./ShoppingList";
 function App() {
-  const { data, isPending, error } = useFetch(
-    "https://jslester.com/food/server"
-  );
+  const { data, isPending } = useFetch("https://jslester.com/food/server");
   var [viewItem, setViewItem] = useState({});
 
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          <Header />
+          {<NavBar />}
+          {/*<Header />*/}
         </header>
         <div className="Body">
           {isPending && (

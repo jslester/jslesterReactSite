@@ -35,13 +35,15 @@ const RecipeSummary = (props) => {
           })}
         </div>
 
-        <button
-          onClick={saveIngredients}
-          className="summaryButton"
-          style={{ marginLeft: "10px" }}
-        >
-          Save
-        </button>
+        {selectedItems && selectedItems.length > 0 && (
+          <button
+            onClick={saveIngredients}
+            className="summaryButton"
+            style={{ marginLeft: "10px" }}
+          >
+            Save
+          </button>
+        )}
       </div>
     </div>
   );

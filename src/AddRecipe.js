@@ -82,34 +82,77 @@ const AddRecipe = () => {
       .then((data) => setInputs({}));
   };
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       {shouldShow ? (
-        <div className="searchBarDiv" style={{ width: "500px" }}>
-          <button className="summaryButton" onClick={logOut}>
-            Log out
-          </button>
-          <form onSubmit={handleSubmit} style={{ width: "90%" }}>
-            <div className="inputDiv">
-              <label>Name</label>
-              <input
-                type="text"
-                name="Name"
-                className="inputBox addInput"
-                value={inputs.Name || ""}
-                onChange={handleChange}
-              />
+        <div className="searchBarDiv formViewWrapper">
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              width: "90%",
+              display: "flex",
+              flexWrap: "wrap",
+            }}
+          >
+            <div style={{ width: "100%", display: "flex" }}>
+              <button className="summaryButton" onClick={logOut}>
+                Log out
+              </button>
+              <input className="summaryButton" type="submit" />
             </div>
-            <div className="inputDiv">
-              <label>Link</label>
-              <input
-                type="text"
-                name="Link"
-                className="inputBox addInput"
-                value={inputs.Link || ""}
-                onChange={handleChange}
-              />
+            <div className="inputSingleForm">
+              <div className="inputDiv">
+                <label>Name</label>
+                <input
+                  type="text"
+                  name="Name"
+                  className="inputBox addInput"
+                  value={inputs.Name || ""}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="inputDiv">
+                <label>Link</label>
+                <input
+                  type="text"
+                  name="Link"
+                  className="inputBox addInput"
+                  value={inputs.Link || ""}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="inputDiv">
+                <label>Type</label>
+                <input
+                  type="text"
+                  name="Type"
+                  className="inputBox addInput"
+                  value={inputs.Type || ""}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="inputDiv">
+                <label>Author</label>
+                <input
+                  type="text"
+                  name="Author"
+                  className="inputBox addInput"
+                  value={inputs.Author || ""}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="inputDiv">
+                <label>EstimatedTime</label>
+                <input
+                  type="text"
+                  name="EstimatedTime"
+                  className="inputBox addInput"
+                  value={inputs.EstimatedTime || ""}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
-            <div className="inputDiv">
+
+            <div className="inputDiv textAreaDiv">
               <label>Ingredients</label>
               <textarea
                 type="text"
@@ -119,7 +162,7 @@ const AddRecipe = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="inputDiv">
+            <div className="inputDiv textAreaDiv">
               <label>Instructions:</label>
               <textarea
                 type="text"
@@ -129,41 +172,11 @@ const AddRecipe = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="inputDiv">
-              <label>Type</label>
-              <input
-                type="text"
-                name="Type"
-                className="inputBox addInput"
-                value={inputs.Type || ""}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="inputDiv">
-              <label>Author</label>
-              <input
-                type="text"
-                name="Author"
-                className="inputBox addInput"
-                value={inputs.Author || ""}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="inputDiv">
-              <label>EstimatedTime</label>
-              <input
-                type="text"
-                name="EstimatedTime"
-                className="inputBox addInput"
-                value={inputs.EstimatedTime || ""}
-                onChange={handleChange}
-              />
-            </div>
-            <input className="summaryButton" type="submit" />
+            <div style={{ width: "100%" }}></div>
           </form>
         </div>
       ) : (
-        <div>
+        <div style={{ width: "300px" }}>
           <p>{errorText ? errorText : ""}</p>
           <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
         </div>
