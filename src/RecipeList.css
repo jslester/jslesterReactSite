@@ -10,7 +10,7 @@ html { font-family: serif; }
     background-color: #ebe1e8;
     margin-bottom: 10px;
     border-radius: 10px;
-    width:400px;
+    width:440px;
     margin-bottom: 20px;
     margin-left:50px;
     box-shadow: rgba(0, 0, 0) 2.95px 2.95px 2.6px;
@@ -49,6 +49,7 @@ html { font-family: serif; }
     font-size: 14px;
     font-family: inherit;
 }
+
 label{
     font-size: 16px;
     color: #555;
@@ -103,6 +104,11 @@ label{
         margin: auto;
         width: 100%;
     }
+    .filterDiv button{
+        right: 20px;
+        top: 15px;
+        position: absolute;
+    }
     .inputDiv{
         width: 100%;
     }
@@ -124,6 +130,8 @@ label{
     margin: 10px 30px auto auto;
     display: flex;
     flex-wrap: wrap;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 .recipe-title{
     color:white;
@@ -185,6 +193,10 @@ label{
 @media screen and (max-width: 480px) {
     .recipe-summary{
         width:300px;
+    }
+    .searchBarDiv{
+        width:350px;
+        margin: 10px auto;
     }
   }
   .summary{
@@ -286,14 +298,13 @@ label{
 @media screen and (max-width: 480px) {
     .recipe-wrapper{
         margin: auto;
-        width:300px;
+        width:350px;
     }
   }
 
 @media screen and (max-width: 480px) {
     .recipe-individual{
-        width:300px;
+        width:350px;
         margin-left:0px;
-        height: 200px;
     }
   }
