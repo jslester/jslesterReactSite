@@ -7,7 +7,6 @@ const RecipeList = (props) => {
   const [recipes, setRecipes] = useState(props.recipes);
   const changeSidebarState = props.changeSidebarState;
   const changeSelectedItem = props.changeSelectedItem;
-  const setViewItem = props.setViewItem;
   const [searchBarText, setSearchBarText] = useState("");
   const [filterBarText, setFilterBarText] = useState("All");
   useEffect(() => {
@@ -44,7 +43,6 @@ const RecipeList = (props) => {
         {recipes.map((recipe) => {
           return (
             <Recipe
-              setViewItem={setViewItem}
               changeSelectedItem={changeSelectedItem}
               key={recipe.Name}
               recipe={recipe}

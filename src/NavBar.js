@@ -71,6 +71,16 @@ const Navbar = () => {
               Shopping Lists
             </Link>
           </li>
+          <li>
+            <Link
+              to="food/RandomFood"
+              onClick={() =>{
+                setIsNavExpanded(!isNavExpanded);
+              }}
+              >
+                Random Food
+              </Link>
+          </li>
         </ul>
       </div>
     </nav>

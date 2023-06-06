@@ -13,6 +13,7 @@
 mysqlTest.py
 flaskapp.py
 sendEmail.py
+summarizeIngredient.py
 # misc
 .DS_Store
 .env.local

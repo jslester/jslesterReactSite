@@ -7,9 +7,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RecipeView from "./RecipeView";
 import AddRecipe from "./AddRecipe";
 import ShoppingList from "./ShoppingList";
+import RandomFoodSelect from "./RandomFoodSelect";
 function App() {
   const { data, isPending } = useFetch("https://jslester.com/food/server");
-  var [viewItem, setViewItem] = useState({});
 
   return (
     <Router>
@@ -35,13 +35,13 @@ function App() {
             <Route
               exact
               path="/food"
-              element={data && <Home setViewItem={setViewItem} data={data} />}
+              element={data && <Home data={data} />}
             ></Route>
             <Route
               path="/food/view"
               element={
                 data && (
-                  <RecipeView data={data} viewItem={viewItem}></RecipeView>
+                  <RecipeView data={data} ></RecipeView>
                 )
               }
             ></Route>
@@ -50,6 +50,11 @@ function App() {
               path="/food/ShoppingList"
               element={<ShoppingList></ShoppingList>}
             ></Route>
+            <Route
+              path="/food/RandomFood"
+              element={<RandomFoodSelect data={data}></RandomFoodSelect>}>
+
+              </Route>
           </Routes>
         </div>
       </div>

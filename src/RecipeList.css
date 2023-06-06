@@ -99,6 +99,15 @@ label{
     padding-left: 10px;
     padding-bottom: 10px;
 }
+
+.CustomRollDiv{
+    display: block;
+    padding: 10px;
+}
+.CustomRollDiv .recipe-individual{
+    margin:10px auto;
+
+}
 @media screen and (max-width: 480px) {
     .shoppingListDiv{
         margin: auto;
@@ -159,7 +168,18 @@ label{
     margin-top:0px;
     /*width:inherit;*/
 }
-
+.RandomFoodDiv{
+    width: 100%;
+    background-color: #ebe1e8;
+    font-size:32px;
+    height: 400px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: rgba(0, 0, 0) 2.95px 2.95px 2.6px;
+}
+.CustomRollDiv .summaryButton{
+    padding-bottom: 10px;
+    margin-left: 0px;
+}
 .Body{
     display:flex;
     flex-wrap: wrap;
@@ -179,6 +199,9 @@ label{
 @media screen and (min-width: 480px) {
     .formViewWrapper{
         width:100%;
+    }
+    .inputDiv{
+        padding: 10px 0px;
     }
     .textAreaDiv{
         height: 400px;

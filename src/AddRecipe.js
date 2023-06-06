@@ -122,13 +122,27 @@ const AddRecipe = () => {
               </div>
               <div className="inputDiv">
                 <label>Type</label>
-                <input
+                {/*<input
                   type="text"
                   name="Type"
                   className="inputBox addInput"
                   value={inputs.Type || ""}
-                  onChange={handleChange}
-                />
+          onChange={handleChange} />*/}
+
+                
+                <select
+            type="Select"
+            name="Type"
+            className="inputBox addInput"
+            value={inputs.Type || ""}
+            onChange={handleChange}>
+          
+            <option>All</option>
+            <option>Mexican</option>
+            <option>Pasta</option>
+            <option>Dessert</option>
+            <option>Misc</option>
+          </select>
               </div>
               <div className="inputDiv">
                 <label>Author</label>

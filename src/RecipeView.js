@@ -78,7 +78,19 @@ const RecipeView = (props) => {
               </ul>
             </div>
           </div>
+          
         </div>
+        <div className="viewWrap">
+          <div> 
+            <h2>Estimated Calories</h2>
+            <div
+              className=" summaryIngredient"
+              style={{ marginBottom: "0px", maxWidth: "400px" }}
+            >
+              {viewItemLocal.calorieEstimation }
+            </div>
+          </div>
+          </div>
       </div>
     </div>
   );

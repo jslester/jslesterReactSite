@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const Recipe = (props) => {
   const recipe = props.recipe;
   const changeSelectedItem = props.changeSelectedItem;
-  const setViewItem = props.setViewItem;
   const changeLocalSelection = (recipeName) => {
     changeSelectedItem(recipeName);
     setIsSelected(!isSelected);
@@ -23,17 +22,16 @@ const Recipe = (props) => {
           <Link
             to={"/food/view?Recipe=" + recipe.Name}
             className="summaryButton"
-            onClick={() => setViewItem(recipe)}
           >
             View Recipe
           </Link>
-          <button
+          {changeSelectedItem && <button
             style={{ marginLeft: "15px" }}
             className={"summaryButton" + (isSelected ? " isSelected" : "")}
             onClick={() => changeLocalSelection(recipe)}
           >
             {isSelected ? "Remove" : "Add"}
-          </button>
+          </button>}
         </div>
       </div>
     </div>

@@ -21,6 +21,7 @@ const FilterList = (props) => {
             <option>All</option>
             <option>Mexican</option>
             <option>Pasta</option>
+            <option>Dessert</option>
             <option>Misc</option>
           </select>
         </div>
