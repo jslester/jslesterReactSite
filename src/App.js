@@ -1,49 +1,26 @@
 import React, { useState } from "react";
-import NavBar from "./NavBar";
-import useFetch from "./useFetch";
-import { Oval } from "react-loader-spinner";
-import Home from "./Home";
+import FoodHome from "./FoodHome";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RecipeView from "./RecipeView";
 import AddRecipe from "./AddRecipe";
 import ShoppingList from "./ShoppingList";
 import RandomFoodSelect from "./RandomFoodSelect";
+import ContextManager from "./ContextManager";
+import SiteHome from "./SiteHome";
 function App() {
-  const { data, isPending } = useFetch("https://jslester.com/food/server");
-
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          {<NavBar />}
-          {/*<Header />*/}
-        </header>
-        <div className="Body">
-          {isPending && (
-            <Oval
-              height="80"
-              width="80"
-              ariaLabel="loading"
-              color="red"
-              visible={true}
-              secondaryColor="gray"
-              strokeWidth={2}
-              strokeWidthSecondary={2}
-            />
-          )}
-          <Routes>
-            <Route
-              exact
-              path="/food"
-              element={data && <Home data={data} />}
-            ></Route>
+        <Routes>
+          <Route element={<ContextManager type="Home"/>}>
+            <Route exact path="/" element={<SiteHome />}></Route>
+          </Route>
+          
+          <Route element={<ContextManager  type="Food"/>}>
+            <Route exact path="/food" element={<FoodHome  />}></Route>
             <Route
               path="/food/view"
-              element={
-                data && (
-                  <RecipeView data={data} ></RecipeView>
-                )
-              }
+              element={<RecipeView ></RecipeView>}
             ></Route>
             <Route path="/food/add" element={<AddRecipe></AddRecipe>}></Route>
             <Route
@@ -52,11 +29,10 @@ function App() {
             ></Route>
             <Route
               path="/food/RandomFood"
-              element={<RandomFoodSelect data={data}></RandomFoodSelect>}>
-
-              </Route>
-          </Routes>
-        </div>
+              element={<RandomFoodSelect ></RandomFoodSelect>}
+            ></Route>
+          </Route>
+        </Routes>
       </div>
     </Router>
   );

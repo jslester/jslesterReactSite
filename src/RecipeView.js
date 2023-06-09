@@ -1,22 +1,23 @@
 import React, { Component, useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams,useOutletContext } from "react-router-dom";
 const RecipeView = (props) => {
-  const data = props.data;
   var viewItem = props.viewItem;
-
+  const {data} = useOutletContext();
   var [viewItemLocal, setViewItemLocal] = useState({});
   let [searchParams, setSearchParams] = useSearchParams();
-  //const instructionList = viewItemLocal.Instructions.split("\n");
   useEffect(() => {
     console.log("rendering", viewItem);
-    if (!viewItem || !viewItem.Name) {
-      console.log("view item not found");
-      const recipeName = searchParams.get("Recipe");
-      viewItem = data.find((x) => x.Name === recipeName);
-      console.log(viewItem);
+    if(data){
+      if (!viewItem || !viewItem.Name) {
+        console.log("view item not found");
+        const recipeName = searchParams.get("Recipe");
+        viewItem = data.find((x) => x.Name === recipeName);
+        console.log(viewItem);
+      }
+      setViewItemLocal(viewItem);
     }
-    setViewItemLocal(viewItem);
-  }, []);
+    
+  }, [data]);
   return (
     <div style={{ width: "100%" }}>
       <div

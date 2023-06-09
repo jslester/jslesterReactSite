@@ -1,7 +1,8 @@
 import CustomRandomRoller from './CustomRandomRoller';
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 const RandomFoodSelect = (props)=>{
-    const data = props.data;
+    const {data} = useOutletContext();
     const [filteredTitles, setFilteredTitles] = useState([]);
     const [filterBarText, setFilterBarText] = useState("All");
 

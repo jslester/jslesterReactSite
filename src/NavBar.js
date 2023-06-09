@@ -1,11 +1,13 @@
 import "./NavBar.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+ 
   return (
-    <nav className="navigation">
+    
+      <header className="App-header navigation">
       <Link
         to="/food/"
         className="brand-name"
@@ -83,7 +85,14 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-    </nav>
+      
+          
+      </header>
+      
+      
+
+      
+
   );
 };
 export default Navbar;

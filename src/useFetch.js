@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
-const useFetch = (url) => {
+const useFetch = (props) => {
   const HTTP_TIMEOUT = 5000;
+  const {url, skip} = props;
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
-  const controller = new AbortController();
+  
   useEffect(() => {
-    fetch(url)
+    if(skip){
+      setIsPending(false);
+      return;
+    }
+    const controller = new AbortController();
+    fetch(url, {signal:controller.signal})
       .then((res) => {
         return res.json();
       })
@@ -16,10 +22,14 @@ const useFetch = (url) => {
         setError(null);
       })
       .catch((err) => {
-        setIsPending(true);
-        setError(err.message);
+        if(err.name !== 'AbortError'){
+          setIsPending(false);
+          setError(err.message);
+        }
+        
       });
-  }, [url]);
+      return () => controller.abort();
+  }, [url, skip]);
   return { data, isPending, error, setData };
 };
 export default useFetch;

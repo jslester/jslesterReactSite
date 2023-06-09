@@ -6,7 +6,7 @@ const ShoppingList = () => {
   const [selecetedIngredients, setSelecetedIngredients] = useState([]);
   const [filterList, setFilterList] = useState([]);
   const { data, isPending, error } = useFetch(
-    "https://jslester.com/food/shoppingserver"
+    {url: "https://jslester.com/food/shoppingserver", skip: false}
   );
   const resetValues = () => {
     setFilterList([]);
