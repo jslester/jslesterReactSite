@@ -12,7 +12,10 @@ const Navbar = (props) => {
         to="/"
         className="brand-name"
         onClick={() => {
-          setIsNavExpanded(!isNavExpanded);
+          if(isNavExpanded){
+            setIsNavExpanded(false);
+          }
+          
         }}
       >
         Home

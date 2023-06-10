@@ -11,7 +11,7 @@ const ContextManager = (props) =>{
     useEffect(()=>{
         
         if(type ==='Food'){
-            console.log('type:' ,type);
+            document.title = 'Lester Food';
             setLinksForNav([
                 {to:"/food", value:"Food Home"},
                 {to:"/food/add", value:"Add Recipe"},
@@ -19,6 +19,7 @@ const ContextManager = (props) =>{
                 {to:"food/RandomFood", value:"Random Food"}
             ])
         }else{
+            document.title = 'Lester';
             setLinksForNav([
                 {to:"/food", value:"Food Home"}
                 

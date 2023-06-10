@@ -1,0 +1,53 @@
+.HomeBoard{
+    margin-right: 0px;
+    display: grid;
+    margin-left: AUTO;
+    align-content: center;
+}
+@import url('https://fonts.cdnfonts.com/css/campton');
+.HomeBoard p{
+    font-size:32px;
+    color:#E55451;
+    margin: 10px 0px;
+    font-family: 'Campton', sans-serif;
+    align-content: center;
+}
+.HomeBoard div{
+    display: flex;
+    align-items: center;
+}
+.HomeBoard .summaryButton{
+    margin-left: 0px;
+    padding: 0px 10px;
+    width: fit-content;
+}
+.HomeWrapper{
+    color: black;
+    margin: 10px 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 480px) {
+    .HomeWrapper{
+        margin:10px auto;
+    }
+    
+    .HomeBoard div{
+        display: flex;
+        align-items: center;
+        margin: auto;
+    }
+    .HomeBoard p{
+        text-align: center;
+    }
+    .HomeWrapper img{
+        max-width: 300px;
+        margin: auto;
+    }
+    
+  }
+.HomeWrapper img{
+    border-radius: 10% 20%;
+}
+
+
