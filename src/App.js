@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import FoodHome from "./FoodHome";
+import FoodHome from "./Food/FoodHome";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import RecipeView from "./RecipeView";
-import AddRecipe from "./AddRecipe";
-import ShoppingList from "./ShoppingList";
-import RandomFoodSelect from "./RandomFoodSelect";
-import ContextManager from "./ContextManager";
-import SiteHome from "./SiteHome";
+import RecipeView from "./Food/RecipeView";
+import AddRecipe from "./Food/AddRecipe";
+import ShoppingList from "./Food/ShoppingList";
+import RandomFoodSelect from "./Food/RandomFoodSelect";
+import ContextManager from "./Utility/ContextManager";
+import SiteHome from "./Home/SiteHome";
 function App() {
   return (
     <Router>

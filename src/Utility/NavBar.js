@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
- 
+  const {linksForNav} = props;
   return (
     
       <header className="App-header navigation">
       <Link
-        to="/food/"
+        to="/"
         className="brand-name"
         onClick={() => {
           setIsNavExpanded(!isNavExpanded);
         }}
       >
-        Lester Food
+        Home
       </Link>
       <button
         className="hamburger"
@@ -43,46 +43,22 @@ const Navbar = (props) => {
         }
       >
         <ul>
-          <li>
-            <Link
-              to="/food/"
-              onClick={() => {
-                setIsNavExpanded(!isNavExpanded);
-              }}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/food/add"
-              onClick={() => {
-                setIsNavExpanded(!isNavExpanded);
-              }}
-            >
-              Add Recipe
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/food/ShoppingList"
-              onClick={() => {
-                setIsNavExpanded(!isNavExpanded);
-              }}
-            >
-              Shopping Lists
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="food/RandomFood"
-              onClick={() =>{
-                setIsNavExpanded(!isNavExpanded);
-              }}
-              >
-                Random Food
-              </Link>
-          </li>
+          {
+            linksForNav && linksForNav.map(linkVal =>{
+              return (
+                <li key={linkVal.value}>
+                  <Link
+                    to={linkVal.to}
+                    onClick={() => {
+                      setIsNavExpanded(!isNavExpanded);
+                    }}
+                  >
+                    {linkVal.value}
+                  </Link>
+                </li>
+              )
+            })
+          }
         </ul>
       </div>
       

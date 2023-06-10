@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
+import main from './img/IMG_1444.JPEG';
 const SiteHome = () =>{
     return(
         <div>
-             <Link
-              to="/food/"
-            >
-              Food Home
-            </Link>
+             <img width="500px" src={main} alt="mainImage" />
         </div>
     )
 }

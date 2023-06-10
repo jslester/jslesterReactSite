@@ -3,6 +3,7 @@ const RecipeSummary = (props) => {
   const saveIngredients = () => {
     if (!selectedItems || selectedItems.length === 0) return;
     let ingredientsList = selectedItems
+    
       .map((a, i) => `${a.Ingredients}\n`)
       .join(" ");
 

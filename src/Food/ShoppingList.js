@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useFetch from "./useFetch";
+import useFetch from "../Utility/useFetch";
 import IndividualIngredient from "./IndividualIngredient";
 const ShoppingList = () => {
   const [selecetedOption, setSelecetedOption] = useState("");
