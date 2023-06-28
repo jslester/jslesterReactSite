@@ -18,10 +18,17 @@ const ContextManager = (props) =>{
                 {to:"/food/ShoppingList", value:"Shopping Lists"},
                 {to:"food/RandomFood", value:"Random Food"}
             ])
+        }else if(type == 'Workout'){
+            document.title = 'Lester';
+            setLinksForNav([
+                {to:"/workout", value:"Workouts Home"}
+                
+            ])
         }else{
             document.title = 'Lester';
             setLinksForNav([
-                {to:"/food", value:"Food Home"}
+                {to:"/food", value:"Food"},
+                {to:"/workout", value:"Workouts"}
                 
             ])
         }

@@ -1,0 +1,44 @@
+.addLiftDiv{
+    display:block;
+    padding:10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+.addLiftDiv > div{
+    display:flex;
+    padding:10px;
+}
+.addLiftDiv input{
+    width: 100px !important;
+}
+.workoutLift{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 100%;
+}
+@media screen and (min-width: 480px) {
+    .workoutLift{
+        width:600px;
+    }
+  }
+
+.workoutLift > div {
+    display: flex;
+}
+.actionButton{
+    background-color: #4056F4;
+    color: white;
+}
+.workoutLift > div > div, label{
+    padding-right: 10px;
+    font-size: 20px;
+    width: 33%;
+}
+
+.workoutLift .recipe-title{
+    margin-top: 10px;
+}
+.fullWidthButton{
+    width: 300px;
+    margin: auto;
+    margin-top: 10px;
+}
