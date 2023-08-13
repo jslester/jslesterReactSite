@@ -2,7 +2,15 @@
     display:block;
     padding:10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size:18px;
 
+}
+.AddLift{
+    width: 100%;
+    font-size:22px;
+}
+.AddLift> div{
+    margin: 10px;
 }
 .addLiftDiv > div{
     display:flex;
@@ -41,4 +49,16 @@
     width: 300px;
     margin: auto;
     margin-top: 10px;
+}
+
+.prevWorkout{
+    display:block !important;
+    font-size:18px;
+}
+.prevWorkout > div{
+    display:flex;
+}
+.prevWorkout > div > div{
+    margin:0px 10px;
+    
 }

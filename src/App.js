@@ -9,6 +9,9 @@ import ShoppingList from "./Food/ShoppingList";
 import RandomFoodSelect from "./Food/RandomFoodSelect";
 import ContextManager from "./Utility/ContextManager";
 import SiteHome from "./Home/SiteHome";
+import FormulaOneHome from "./Formula1/FormulaOneHome"
+import SportsHome from "./Sports/SportsHome";
+import AddLift from "./Workout/AddLift";
 function App() {
   return (
     <Router>
@@ -36,7 +39,12 @@ function App() {
           </Route>
           <Route element={<ContextManager type="Workout"/>}>
             <Route exact path="/workout" element={<WorkoutHome />}></Route>
+            <Route exact path="/workout/AddLift" element={<AddLift />}></Route>
             <Route path="/workout/*" element={<WorkoutView />}></Route>
+          </Route>
+          <Route element={<ContextManager type="Sports"/>}>
+            <Route exact path="/sports" element={<SportsHome />}></Route>
+            <Route exact path="/sports/formula1" element={<FormulaOneHome />}></Route>
           </Route>
         </Routes>
       </div>

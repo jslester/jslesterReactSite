@@ -24,7 +24,8 @@ const useFetch = (props) => {
       .catch((err) => {
         if(err.name !== 'AbortError'){
           setIsPending(false);
-          setError(err.message);
+          
+          setError(err.message? err.message : err);
         }
         
       });

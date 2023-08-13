@@ -7,22 +7,45 @@ const WorkoutView = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [showCreateDiv, setShowCreateDiv] = useState(false);
+    const [recentLift, setRecentLift] = useState({});
     const [inputs, setInputs] = useState({});
     const [workoutLifts, setWorkoutLifts] = useState([]);
-    const { data, isPending, error } = useFetch({ url: 'https://jslester.com/workout/server/getLifts/' + location.state.id });
+    const { data, isPending, error } = useFetch({ url: 'https://jslester.com/workout/server/getLifts/' + location?.state?.id });
     
     useEffect(() => {
+        if(error){
+            console.log(error);
+            navigate('/workout')
+        }
         if(data){
             console.log(data.workoutlifts);
             setWorkoutLifts(data.workoutlifts);
         }
-    }, [data]);
+    }, [data,error]);
+    const handleLiftChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs((values) => ({ ...values, [name]: value }));
+        fetch('https://jslester.com/workout/recentLift/' + event.target.value)
+        .then((res) => {
+            return res.json();
+        })
+        .then((result) => {
+            setRecentLift(result);
+        })
+        .catch((err) => {
+            
+        });
+        console.log(data);
+    };
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setInputs((values) => ({ ...values, [name]: value }));
     };
     const saveLift = () => {
+        setInputs({});
+        setRecentLift({});
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -62,7 +85,7 @@ const WorkoutView = () => {
                                 className="inputBox"
                                 value={inputs.Lift || ""}
                                 name="Lift"
-                                onChange={handleChange}
+                                onChange={handleLiftChange}
                             >
                                 <option>-</option>
                                 {data && data.lifts.map(lift => {
@@ -72,6 +95,7 @@ const WorkoutView = () => {
                             </select>
                         </div>
                         </div>
+                            
                     <div>
                         
                         <div className="inputDiv">
@@ -105,7 +129,27 @@ const WorkoutView = () => {
                                 onChange={handleChange}
                             />
                         </div>
+
+                        
                     </div>
+                    
+                        {recentLift && recentLift.Weight &&
+                                    <div className="prevWorkout">
+                                        <p>Previous Workout:</p>
+                                        <div>
+                                            <div style={{marginLeft:'0px'}}>
+                                                Weight: {recentLift.Weight}
+                                            </div>
+                                            <div>
+                                                Sets: {recentLift.Sets}
+                                            </div>
+                                            <div>
+                                                Reps: {recentLift.Reps}
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                    
                     <div>
                         <button style={{margin: 'auto 0px auto auto'}} className="summaryButton" onClick={() => setShowCreateDiv(false)}>Cancel</button>
                         <button style={{margin: 'auto auto auto 10px'}} className="summaryButton actionButton" onClick={saveLift}>Save</button>

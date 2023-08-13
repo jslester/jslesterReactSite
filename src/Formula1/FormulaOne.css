@@ -1,0 +1,51 @@
+.RaceDivBody{
+    background-color: #ebe1e8;
+    color: black;
+    margin:10px 50px;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: rgba(0, 0, 0) 2.95px 2.95px 2.6px;
+    width: 500px;
+}
+.FormulaOneHomeBody h2{
+    margin-left: 50px;
+}
+@media screen and (max-width: 480px) {
+    .RaceDivBody{
+       width:350px;
+    }
+    .FormulaOneHomeBody{
+        margin: auto;
+    }
+    .RaceDivBody{
+        margin: 10px auto;
+    }
+}
+.RaceDivHeader{
+    margin-top: 0px;
+    margin-bottom: auto;
+    border-bottom: black 1px solid;
+    width: 100%;
+    cursor:pointer;
+    display: flex;
+    border-radius: 10px 10px 0px 0px;
+
+}/*#container:hover > #cube { background-color: yellow; }*/
+.RaceDivHeader:hover {
+    background-color: #d1c7ce;
+}
+
+.RaceDivBody p{
+    margin-left: 10px; 
+    
+    
+}
+.RaceDivHeader > div{
+    font-size: 22px;
+    padding:10px;
+    margin:0px;
+    
+
+}

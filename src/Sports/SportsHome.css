@@ -1,0 +1,75 @@
+.UpcomingGames{
+    margin: 0px 10px 0px auto;
+    width: 300px;
+}
+.SportsHome{
+    display: flex;
+    width: 100%;
+}
+.GenericGame{
+    border: 1px black solid;
+    color: white;
+    font-size: 20px;
+}
+.LakerGame{
+    background-color: #FDB927;
+}
+.RazorbackGame{
+    background-color: #9D2235; 
+}
+.CowboyGame{
+    background-color: #003594;
+}
+.NewsHeader{
+    color: white;
+    font-size: 32px;
+    font-family: "Heebo";
+    font-weight: black;
+
+}
+.NewsDiv{
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px 0px;
+}
+.NewsSection{
+    display: flex;
+    padding-top: 10px;
+    
+}
+.SportsHomeNewsWrapper{
+    float: left;
+    padding-right: 100px;
+    flex-grow: 1;
+}
+.MainNewsSports{
+    width: 50%;
+    border-right: 1px black dashed;
+    font-family: "Heebo";
+    font-weight: black;
+    font-size: 18px;
+}
+.MainNewsSports  > div> p{
+    margin: 10px;
+}
+.SecondaryNewsSports{
+    width: 50%;
+    font-family:'Roboto-Medium', sans-serif;
+    
+}
+.SportsImgWrapper{
+    text-align: center;
+}
+.SecondaryNewsSports > div {
+    padding:10px 0px;
+}
+.SecondaryNewsSports > div > a{
+    padding:10px 0px;
+    text-decoration: none;
+    color:black;
+    font-size:16px;
+}
+
+.SecondaryNewsSports > div > a:hover{
+    text-decoration:underline;
+}

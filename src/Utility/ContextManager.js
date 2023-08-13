@@ -21,14 +21,24 @@ const ContextManager = (props) =>{
         }else if(type == 'Workout'){
             document.title = 'Lester';
             setLinksForNav([
-                {to:"/workout", value:"Workouts Home"}
+                {to:"/workout", value:"Workouts Home"},
+                {to:"/workout/AddLift", value:"Add Lift"}
+
+                
+            ])
+        }else if(type == 'Sports'){
+            document.title = 'Lester Sports';
+            setLinksForNav([
+                {to:"/sports", value:"Home"},
+                {to:"/sports/formula1", value:"F1"}
                 
             ])
         }else{
             document.title = 'Lester';
             setLinksForNav([
                 {to:"/food", value:"Food"},
-                {to:"/workout", value:"Workouts"}
+                {to:"/workout", value:"Workouts"},
+                {to:"/sports", value:"Sports"}
                 
             ])
         }
