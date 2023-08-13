@@ -4,6 +4,7 @@ import "./Workout.css";
 import useFetch from "../Utility/useFetch";
 import PastWorkout from "./PastWorkout";
 
+
 const WorkoutHome = () => {
   const navigate = useNavigate();
   const [showCreateDiv, setShowCreateDiv] = useState(false);
