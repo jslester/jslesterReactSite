@@ -4,10 +4,10 @@ const SportsSecondaryNews = (props) =>{
     const convertedDate = new Date(data.created * 1000).toLocaleString();
     console.log(convertedDate);
     return (
-        <div>
-            <a href={data.url} target="_blank"> {data.title}</a>
-            <div>
-                <p>{data.subreddit}</p>
+        <div style={{paddingLeft: '15px'}}>
+            <a target="_blank"  href={data.url} style={{fontWeight:700}}> {data.title}</a>
+            <div className="SecondaryNewsDetail">
+                <p >{'r/' +data.subreddit}</p>
                 <p>{convertedDate}</p>
             </div>
         </div>

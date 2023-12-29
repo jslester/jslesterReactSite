@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../Utility/useFetch";
 import WorkoutLift from "./WorkoutLift";
+import {AuthTokenRetrieve, LoginButton, LogoutButton} from "../Utility/AuthTokenRetrieve";
 const WorkoutView = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -11,7 +12,9 @@ const WorkoutView = () => {
     const [inputs, setInputs] = useState({});
     const [workoutLifts, setWorkoutLifts] = useState([]);
     const { data, isPending, error } = useFetch({ url: 'https://jslester.com/workout/server/getLifts/' + location?.state?.id });
-    
+    const [shouldShow, setShouldShow] = useState();
+  
+    let {shouldShow:shouldShowGoogle} = AuthTokenRetrieve();
     useEffect(() => {
         if(error){
             console.log(error);
@@ -71,8 +74,11 @@ const WorkoutView = () => {
     return (
         <div style={{width:'100%'}}>
             {!showCreateDiv && 
+            
             <div style={{paddingTop:'10px'}}>
-                <button className="summaryButton fullWidthButton" onClick={() => setShowCreateDiv(true)}>Add Lift</button>
+                {shouldShow? ( <LoginButton setShouldShow={setShouldShow}></LoginButton> ): (
+                    <button className="summaryButton fullWidthButton" onClick={() => setShowCreateDiv(true)}>Add Lift</button>
+                )}
              </div>   
                 }
             {showCreateDiv &&

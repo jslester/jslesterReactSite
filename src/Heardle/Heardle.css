@@ -1,0 +1,59 @@
+.outerProgressBar{
+    width: 100%;
+    background-color: green;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.innerProgressBar{
+    border-radius: 5px;
+    background-color: #E55451;
+    height: 50px;
+}
+
+.SearchResult{
+    position: absolute;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    bottom: 100%;
+    left: 0;
+    right: 0;
+      
+}
+
+.SearchResult div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: white; 
+    border-top: 2px solid darkgray; 
+    border-left: 2px solid darkgray; 
+    border-right: 2px solid darkgray; 
+    font-size: 18px;
+  }
+
+.HeardleWrapper{
+    width:500px;
+}
+@media screen and (max-width: 480px) {
+    .HeardleWrapper{
+        width:310px;
+    }
+}
+.SearchResult div:hover{
+    background-color: #3f3f3f;
+    color: white;
+}
+.loadingDiv,.loadingDiv > div {
+    display: flex;
+    margin: 10px auto;
+
+}
+.incorrectGuess{
+    color: black;
+    margin:10px 0px;
+    border:black 1px solid;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 10px;
+    height: 40px;
+}

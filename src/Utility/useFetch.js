@@ -12,7 +12,7 @@ const useFetch = (props) => {
       return;
     }
     const controller = new AbortController();
-    fetch(url, {signal:controller.signal})
+    fetch(url, {cache: "no-cache", signal:controller.signal})
       .then((res) => {
         return res.json();
       })

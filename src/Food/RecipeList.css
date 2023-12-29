@@ -134,7 +134,7 @@ label{
 }
 .filterDiv{
     /* #798897*/
-    align-items: center;
+    align-items: end;
     margin: 10px 30px auto auto;
     display: flex;
     flex-wrap: wrap;

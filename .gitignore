@@ -15,6 +15,7 @@ mysqlTest.py
 flaskapp.py
 sendEmail.py
 summarizeIngredient.py
+scpcommand.txt
 # misc
 .DS_Store
 .env.local

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Workout.css";
 import useFetch from "../Utility/useFetch";
 import PastWorkout from "./PastWorkout";
-
+import {AuthTokenRetrieve, LoginButton, LogoutButton} from "../Utility/AuthTokenRetrieve";
 
 const WorkoutHome = () => {
   const navigate = useNavigate();
@@ -11,6 +11,13 @@ const WorkoutHome = () => {
   const [createTypeValue, setCreateTypeValue] = useState(""); //
   const {data, isPending, error } = useFetch({url:'https://jslester.com/workout/server/getLifts'});
   const {data:pastWorkouts, isPending:pendingWorkout, error:errorWorkout } = useFetch({url:'https://jslester.com/workout/server'});
+  const [shouldShow, setShouldShow] = useState();
+  
+  let {shouldShow:shouldShowGoogle} = AuthTokenRetrieve();
+  useEffect(() => {
+    setShouldShow(shouldShowGoogle);
+  }, [shouldShowGoogle]);
+
 
   const createWorkout = () => {
     if (createTypeValue == "" || createTypeValue == "-") return;
@@ -32,9 +39,15 @@ const WorkoutHome = () => {
   };
   return (
     <div style={{width:'100%'}}>
-      {!showCreateDiv &&  <button onClick={() => setShowCreateDiv(true)} className="summaryButton fullWidthButton">
-        New Workout
-      </button>}
+      {shouldShow ? (
+        !showCreateDiv &&  <button onClick={() => setShowCreateDiv(true)} className="summaryButton fullWidthButton">
+          New Workout
+        </button>
+      
+      ): (
+        <LoginButton setShouldShow={setShouldShow}></LoginButton>
+
+      )}
 
       {showCreateDiv && (
         <div className="addLiftDiv">

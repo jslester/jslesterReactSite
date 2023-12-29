@@ -13,7 +13,7 @@ const SportsHome = () =>{
                 <SportsNewsSection team="Razorbacks" league="CFB"/>
                 
             </div>
-            <SportsHomeUpcomingGames />
+            {/*<SportsHomeUpcomingGames />*/}
         </div>
     )
 }

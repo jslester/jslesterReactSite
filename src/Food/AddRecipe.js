@@ -1,74 +1,19 @@
 import { useEffect, useState } from "react";
 import "./RecipeList.css";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
-import jwt_decode from "jwt-decode";
-
+import {AuthTokenRetrieve, LoginButton, LogoutButton} from "../Utility/AuthTokenRetrieve";
 const AddRecipe = () => {
   const [inputs, setInputs] = useState({});
-  const [shouldShow, setShouldShow] = useState(false);
-  const [errorText, setErrorText] = useState("");
+  const [shouldShow, setShouldShow] = useState();
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
-
+  let {shouldShow:shouldShowGoogle} = AuthTokenRetrieve();
   useEffect(() => {
-    if (localStorage.getItem("lesterAccessToken")) {
-      const accessToken = localStorage.getItem("lesterAccessToken");
-      //callout for valid accessToken
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ accessToken: accessToken, type: "validate" }),
-      };
+    setShouldShow(shouldShowGoogle);
+  }, [shouldShowGoogle]);
 
-      fetch("https://jslester.com/food/access", requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data && data.length > 0) {
-            setShouldShow(true);
-          } else {
-            setShouldShow(false);
-          }
-        });
-    } else {
-      setShouldShow(false);
-    }
-  }, []);
-  //useffect -> check if token in local storage. If yes,
-  // then call backend server with that info, return yes or no, display form if yes
-  // if not, show google login button
-
-  //on google login, call endpoint with email and access token
-  //if email is in table, then return valid
-  const responseMessage = (response) => {
-    const userObject = jwt_decode(response.credential);
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: userObject.email, type: "NewToken" }),
-    };
-
-    fetch("https://jslester.com/food/access", requestOptions)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data && data.length > 0) {
-          localStorage.setItem("lesterAccessToken", data[0].accessToken);
-          setShouldShow(true);
-        } else {
-          setErrorText("User not authorized to add recipes");
-        }
-      });
-  };
-  const errorMessage = (error) => {
-    console.log(error);
-  };
-  const logOut = () => {
-    googleLogout();
-    setShouldShow(false);
-    localStorage.removeItem("lesterAccessToken");
-  };
   const handleSubmit = (event) => {
     event.preventDefault();
     const requestOptions = {
@@ -94,9 +39,7 @@ const AddRecipe = () => {
             }}
           >
             <div style={{ width: "100%", display: "flex" }}>
-              <button className="summaryButton" onClick={logOut}>
-                Log out
-              </button>
+              <LogoutButton setShouldShow={setShouldShow}></LogoutButton>
               <input className="summaryButton" type="submit" />
             </div>
             <div className="inputSingleForm">
@@ -190,10 +133,8 @@ const AddRecipe = () => {
           </form>
         </div>
       ) : (
-        <div style={{ width: "300px" }}>
-          <p>{errorText ? errorText : ""}</p>
-          <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
-        </div>
+        <LoginButton setShouldShow={setShouldShow}></LoginButton>
+        
       )}
     </div>
   );

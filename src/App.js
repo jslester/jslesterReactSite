@@ -9,9 +9,12 @@ import ShoppingList from "./Food/ShoppingList";
 import RandomFoodSelect from "./Food/RandomFoodSelect";
 import ContextManager from "./Utility/ContextManager";
 import SiteHome from "./Home/SiteHome";
+import ChatHome from "./ChatDemo/ChatHome";
 import FormulaOneHome from "./Formula1/FormulaOneHome"
 import SportsHome from "./Sports/SportsHome";
 import AddLift from "./Workout/AddLift";
+import Heardle from "./Heardle/Heardle";
+
 function App() {
   return (
     <Router>
@@ -45,6 +48,12 @@ function App() {
           <Route element={<ContextManager type="Sports"/>}>
             <Route exact path="/sports" element={<SportsHome />}></Route>
             <Route exact path="/sports/formula1" element={<FormulaOneHome />}></Route>
+          </Route>
+          <Route element={<ContextManager type="Chat"/>}>
+            <Route exact path="/chat" element={<ChatHome />}></Route>
+          </Route>
+          <Route element={<ContextManager type="Heardle"/>}>
+            <Route exact path="/heardle" element={<Heardle />}></Route>
           </Route>
         </Routes>
       </div>
