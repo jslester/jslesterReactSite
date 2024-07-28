@@ -21,9 +21,9 @@ const FormulaOneRace = (props) =>{
         if(race){
             const d = new Date(race.date); 
             race.formattedRaceDay = months[d.getMonth()]+ ' ' + d.getUTCDate()
-            race.formattedFirstPractice = dateSplitter(race.FirstPractice.date, race.FirstPractice.time);
-            race.formattedSecondPractice = dateSplitter(race.SecondPractice.date, race.SecondPractice.time);
-            race.formattedQualifying = dateSplitter(race.Qualifying.date, race.Qualifying.time);
+            race.formattedFirstPractice = race.FirstPractice ? dateSplitter(race.FirstPractice.date, race.FirstPractice.time): '';
+            race.formattedSecondPractice = race.SecondPractice ? dateSplitter(race.SecondPractice.date, race.SecondPractice.time) : '';
+            race.formattedQualifying = race.Qualifying ? dateSplitter(race.Qualifying.date, race.Qualifying.time) : '';
             if(race.ThirdPractice){
                 race.formattedThirdPractice = dateSplitter(race.ThirdPractice.date, race.ThirdPractice.time);
             }

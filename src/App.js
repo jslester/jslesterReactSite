@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FoodHome from "./Food/FoodHome";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RecipeView from "./Food/RecipeView";
@@ -13,7 +13,9 @@ import ChatHome from "./ChatDemo/ChatHome";
 import FormulaOneHome from "./Formula1/FormulaOneHome"
 import SportsHome from "./Sports/SportsHome";
 import AddLift from "./Workout/AddLift";
+import HeardleHome from "./Heardle/HeardleHome";
 import Heardle from "./Heardle/Heardle";
+import MedicineHome from "./Medicine/MedicineHome";
 
 function App() {
   return (
@@ -53,7 +55,14 @@ function App() {
             <Route exact path="/chat" element={<ChatHome />}></Route>
           </Route>
           <Route element={<ContextManager type="Heardle"/>}>
-            <Route exact path="/heardle" element={<Heardle />}></Route>
+            <Route exact path="/heardle" element={<HeardleHome />}></Route>
+            <Route
+              path="/heardle/play"
+              element={<Heardle ></Heardle>}
+            ></Route>
+          </Route>
+          <Route element={<ContextManager type="Medicine"/>}>
+          <Route exact path="/medicine" element={<MedicineHome />}></Route>
           </Route>
         </Routes>
       </div>

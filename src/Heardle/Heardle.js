@@ -4,7 +4,7 @@ import SongListGenerator from "./SongListGenerator";
 import "./Heardle.css";
 import SearchResults from "./SearchResults";
 import { FallingLines, Oval } from "react-loader-spinner";
-const Heardle = () => {
+const Heardle = (props) => {
   const timeSettings = [3000, 5000, 10000, 12000, 15000];
   const [currentPlaytime, setCurrentPlaytime] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
@@ -13,7 +13,8 @@ const Heardle = () => {
   const [wasCorrect, setWasCorrect] = useState(false);
   const [isPending, setIsPending] = useState(true);
   const [showSearchResults, setShowSearchResults] = useState(false);
-  const songResponse  = useRef(SongListGenerator());
+  const songResponse  = SongListGenerator();
+  console.log(songResponse);
   const [searchInput, setSearchInput] = useState('');
   const attemptStyles = {
     width: (currentPlaytime / timeSettings.length) * 100 + "%",
@@ -21,30 +22,33 @@ const Heardle = () => {
   const player = useRef({});
 
   useEffect(() => {
-    setTimeout(() => {
-      var ctrlq = document.getElementById("youtube-audio");
-      if(!ctrlq) return;
-      ctrlq.innerHTML =
-        '<img style="margin: auto;display:block" width="50px" id="youtube-icon" src=""/>';
-      ctrlq.style.cssText =
-        "width:150px;margin:1em auto;cursor:pointer;cursor:hand;";
-      const YT = window.YT;
-      player.current = new YT.Player("youtube-player", {
-        height: "0",
-        width: "0",
-        videoId: songResponse.current.selectedSong.code,
-        playerVars: {
-          autoplay: ctrlq.dataset.autoplay,
-          loop: ctrlq.dataset.loop,
-        },
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange,
-        },
-      });
-      setIsPending(false);
-    }, 2000);
-  }, []);
+    if(songResponse.selectedSong){
+      setTimeout(() => {
+        var ctrlq = document.getElementById("youtube-audio");
+        if(!ctrlq) return;
+        ctrlq.innerHTML =
+          '<img style="margin: auto;display:block" width="50px" id="youtube-icon" src=""/>';
+        ctrlq.style.cssText =
+          "width:150px;margin:1em auto;cursor:pointer;cursor:hand;";
+        const YT = window.YT;
+        player.current = new YT.Player("youtube-player", {
+          height: "0",
+          width: "0",
+          videoId: songResponse.selectedSong.code,
+          playerVars: {
+            autoplay: ctrlq.dataset.autoplay,
+            loop: ctrlq.dataset.loop,
+          },
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+        setIsPending(false);
+      }, 2000);
+    }
+    
+  }, [songResponse.selectedSong]);
 
   function togglePlayButton(play) {
     if(document.getElementById("youtube-icon")){
@@ -81,7 +85,8 @@ const Heardle = () => {
 
   function onPlayerReady(event) {
     if (player.current && document.getElementById("youtube-audio")) {
-      player.current.setPlaybackQuality("small");
+      //player.current.setPlaybackQuality("small");
+      console.log('playerready')
       document.getElementById("youtube-audio").style.display = "block";
       togglePlayButton(player.current.getPlayerState() !== 5);
     }
@@ -106,7 +111,7 @@ const Heardle = () => {
         setSearchInput(searchValue)
     }
     const checkSubmission = ()=>{
-        if(searchInput === songResponse.current.selectedSong.songName){
+        if(searchInput === songResponse.selectedSong.songName){
             startVideo();
             setWasCorrect(true);
             setShowResults(true);
@@ -191,7 +196,7 @@ const Heardle = () => {
               <p>Song Guess</p>
               <div style={{width: '300px', position: 'relative',display: 'inlineBlock'}}> 
                 
-                    {showSearchResults && <SearchResults isFocused={isFocused} showSearchResults={showSearchResults} clickSong={clickSong} searchInput={searchInput} songTitles={songResponse.current.songTitles}/>}
+                    {showSearchResults && <SearchResults isFocused={isFocused} showSearchResults={showSearchResults} clickSong={clickSong} searchInput={searchInput} songTitles={songResponse.songTitles}/>}
                     <input onTouchCancel={()=> setIsFocused(false)}  onBlur={()=> {
                         setTimeout(() => {
                             setIsFocused(false)
@@ -208,7 +213,7 @@ const Heardle = () => {
         <div style={{height:'1000px'}}>
             <h2>{wasCorrect? 'Good Job!' : 'Maybe next time!'}</h2>
             
-            <p>The song was {songResponse.current.selectedSong.songName} by {songResponse.current.selectedSong.artist}</p>
+            <p>The song was {songResponse.selectedSong.songName} by {songResponse.selectedSong.artist}</p>
             <button className="summaryButton" onClick={() => window.location.reload()}>{wasCorrect? 'Play': 'Try'} Again</button>
             
         </div>

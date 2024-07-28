@@ -1,0 +1,74 @@
+.MedicineHome{
+    display:flex;
+    flex-wrap: wrap;
+}
+.WeightHome{
+    width: 600px;
+    margin: auto;
+}
+.medicineTable{
+    width: 50%;
+    margin:auto;
+    margin-top: 10px;
+}
+@media screen and (max-width: 480px) {
+    .MedicineHome{
+        width:100%;
+    }
+    .medicineTable{
+        width: 90%;
+    }
+    .WeightHome{
+        width: 90%;
+    }
+}
+.medicineTable table{
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.medicineTable table * {
+    position: relative;
+}
+.addWeightDiv{
+    text-align: center;
+    display: inline-block !important;
+    width: 100%;
+}
+
+.addWeightDiv  label, input{
+    display: inline-block;
+    text-align: left;
+    width: auto;
+}
+
+.medicineTable table thead tr {
+    height: 60px;
+    background: #36304a;
+}
+.medicineTable table tbody tr {
+    height: 50px;
+}
+.medicineTable tbody tr {
+    font-family: OpenSans-Regular;
+    font-size: 15px;
+    color: gray;
+    line-height: 1.2;
+    font-weight: unset;
+}
+.medicineTable table thead tr th{
+    font-family: OpenSans-Regular;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: unset;
+}
+.medicineTable tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+

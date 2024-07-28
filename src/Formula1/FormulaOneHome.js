@@ -3,7 +3,8 @@ import useFetch from "../Utility/useFetch";
 import FormulaOneRace from "./FormulaOneRace";
 const FormulaOneHome = () => {
     //https://ergast.com/api/f1/2023.json
-    const {data, isPending, isError } = useFetch({url: 'https://ergast.com/api/f1/2023.json'})
+    const thisYear = new Date();
+    const {data, isPending, isError } = useFetch({url: 'https://ergast.com/api/f1/'+ thisYear.getFullYear() + '.json'})
     const [futureRaces, setFutureRaces] = useState([]);
     console.log(data);
     useEffect( ()=>{
@@ -12,6 +13,8 @@ const FormulaOneHome = () => {
             const d = Date.now();
             console.log(d);
             const futureRaces = data.MRData.RaceTable.Races.filter(race =>{
+                console.log(race.raceName);
+                console.log(race.date);
                 const raceDate = new Date(race.date).valueOf();
                 return ((raceDate + ((24 * 60 * 60 * 1000))) > d );
             })
