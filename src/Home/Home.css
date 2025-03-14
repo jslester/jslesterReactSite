@@ -153,3 +153,68 @@
 .ProjectCard h2{
     font-size: 22px;
 }
+
+/* Table Container */
+.table-container {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-x: auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+}
+
+/* Table styles */
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.modern-table th {
+    background-color: #E55451;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.modern-table td {
+    border-top: 1px solid #f2f2f2;
+    font-size: 14px;
+}
+
+.modern-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.modern-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.modern-table td:first-child {
+    font-weight: bold;
+}
+
+
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+    .modern-table {
+        font-size: 12px;
+    }
+
+    .modern-table th,
+    .modern-table td {
+        padding: 10px;
+    }
+}

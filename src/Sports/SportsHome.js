@@ -7,7 +7,6 @@ const SportsHome = () =>{
         <div className="SportsHome">
             <div className='SportsHomeNewsWrapper'>
                 <h2>News</h2>
-                
                 <SportsNewsSection team="Lakers" league="NBA"/>
                 <SportsNewsSection team="Cowboys" league="NFL"/>
                 <SportsNewsSection team="Razorbacks" league="CFB"/>

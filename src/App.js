@@ -16,6 +16,7 @@ import AddLift from "./Workout/AddLift";
 import HeardleHome from "./Heardle/HeardleHome";
 import Heardle from "./Heardle/Heardle";
 import MedicineHome from "./Medicine/MedicineHome";
+import SportsFantasyFootball from "./Sports/SportsFantasyFootball";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route element={<ContextManager type="Sports"/>}>
             <Route exact path="/sports" element={<SportsHome />}></Route>
             <Route exact path="/sports/formula1" element={<FormulaOneHome />}></Route>
+            <Route exact path="/sports/fantasyfootball" element={<SportsFantasyFootball />}></Route>
           </Route>
           <Route element={<ContextManager type="Chat"/>}>
             <Route exact path="/chat" element={<ChatHome />}></Route>

@@ -30,7 +30,8 @@ const ContextManager = (props) =>{
             document.title = 'Lester Sports';
             setLinksForNav([
                 {to:"/sports", value:"Home"},
-                {to:"/sports/formula1", value:"F1"}
+                {to:"/sports/formula1", value:"F1"},
+                {to:"/sports/fantasyfootball", value:"FF"}
                 
             ])
         }else{

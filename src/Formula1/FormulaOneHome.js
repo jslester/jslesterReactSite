@@ -4,7 +4,7 @@ import FormulaOneRace from "./FormulaOneRace";
 const FormulaOneHome = () => {
     //https://ergast.com/api/f1/2023.json
     const thisYear = new Date();
-    const {data, isPending, isError } = useFetch({url: 'https://ergast.com/api/f1/'+ thisYear.getFullYear() + '.json'})
+    const {data, isPending, isError } = useFetch({url: 'https://api.jolpi.ca/ergast/f1/'+ thisYear.getFullYear() + '.json'})
     const [futureRaces, setFutureRaces] = useState([]);
     console.log(data);
     useEffect( ()=>{
